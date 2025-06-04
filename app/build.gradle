@@ -40,3 +40,15 @@ tasks.register("hello")
         println "Hello from Gradle"
     }
 }
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+test {
+    useJUnit() // Optional, for clarity with JUnit 4
+    reports {
+        junitXml.required = true
+        html.required = true
+    }
+}
